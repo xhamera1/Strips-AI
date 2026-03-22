@@ -1,0 +1,9 @@
+Experiment: 7blocks
+Problem: 7 blocks - three stacks into two towers
+Heuristic: none
+Date: 2026-03-22 19:00:11
+==================================================
+Solved: no
+Time [s]: 300.0000
+Expanded states: 12222
+Number of actions: 0

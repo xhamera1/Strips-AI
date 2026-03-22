@@ -1,0 +1,15 @@
+Experiment: 5blocks
+Problem: 5 blocks - scattered into one tower
+Heuristic: blocks_heuristic
+Date: 2026-03-22 18:53:27
+==================================================
+Solved: yes
+Time [s]: 0.0030
+Expanded states: 9
+Number of actions: 4
+
+Action plan:
+  1. move_d_from_table_to_e
+  2. move_c_from_table_to_d
+  3. move_b_from_table_to_c
+  4. move_a_from_table_to_b

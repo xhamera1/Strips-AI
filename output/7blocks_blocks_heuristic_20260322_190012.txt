@@ -1,14 +1,14 @@
-Eksperyment: 7blocks
-Problem: 7 klockow - trzy stosy w dwie wieze
-Heurystyka: blocks_heuristic
-Data: 2026-03-22 17:10:27
+Experiment: 7blocks
+Problem: 7 blocks - three stacks into two towers
+Heuristic: blocks_heuristic
+Date: 2026-03-22 19:00:12
 ==================================================
-Rozwiazano: tak
-Czas [s]: 0.0030
-Rozwinietych stanow: 15
-Liczba akcji: 7
+Solved: yes
+Time [s]: 0.0715
+Expanded states: 22
+Number of actions: 7
 
-Plan akcji:
+Action plan:
   1. move_f_from_g_to_table
   2. move_c_from_d_to_a
   3. move_d_from_e_to_f

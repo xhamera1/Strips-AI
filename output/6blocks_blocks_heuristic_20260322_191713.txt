@@ -1,0 +1,20 @@
+Experiment: 6blocks
+Problem: 6 blocks - merge tower with single block
+Heuristic: blocks_heuristic
+Date: 2026-03-22 19:17:13
+==================================================
+Solved: yes
+Time [s]: 0.0715
+Expanded states: 223
+Number of actions: 9
+
+Action plan:
+  1. move_a_from_b_to_table
+  2. move_b_from_c_to_table
+  3. move_c_from_d_to_b
+  4. move_d_from_e_to_a
+  5. move_e_from_table_to_f
+  6. move_d_from_a_to_e
+  7. move_c_from_b_to_d
+  8. move_b_from_table_to_c
+  9. move_a_from_table_to_b
