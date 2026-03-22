@@ -1,0 +1,9 @@
+Eksperyment: 7blocks
+Problem: 7 klockow - trzy stosy w dwie wieze
+Heurystyka: brak
+Data: 2026-03-22 17:10:21
+==================================================
+Rozwiazano: nie
+Czas [s]: 300.0000
+Rozwinietych stanow: 14201
+Liczba akcji: 0
