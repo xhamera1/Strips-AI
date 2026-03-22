@@ -1,0 +1,99 @@
+Experiment: 12blocks_subgoals
+Problem: 12 blocks - tower to two interleaved towers
+Heuristic: blocks_heuristic
+Subgoals: 5
+Date: 2026-03-22 20:24:40
+==================================================
+
+Subgoal 1:
+  Goal: {'a_is_on': 'table', 'b_is_on': 'table', 'c_is_on': 'table', 'd_is_on': 'table', 'e_is_on': 'table', 'f_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0477
+  Expanded states: 7
+  Actions: 6
+    1. move_a_from_b_to_table
+    2. move_b_from_c_to_table
+    3. move_c_from_d_to_table
+    4. move_d_from_e_to_table
+    5. move_e_from_f_to_table
+    6. move_f_from_g_to_table
+
+Subgoal 2:
+  Goal: {'g_is_on': 'table', 'h_is_on': 'table', 'i_is_on': 'table', 'j_is_on': 'table', 'k_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0730
+  Expanded states: 6
+  Actions: 5
+    1. move_g_from_h_to_table
+    2. move_h_from_i_to_table
+    3. move_i_from_j_to_table
+    4. move_j_from_k_to_table
+    5. move_k_from_l_to_table
+
+Subgoal 3:
+  Goal: {'i_is_on': 'k', 'k_is_on': 'table', 'j_is_on': 'l'}
+  Solved: yes
+  Time [s]: 0.1148
+  Expanded states: 3
+  Actions: 2
+    1. move_i_from_table_to_k
+    2. move_j_from_table_to_l
+
+Subgoal 4:
+  Goal: {'g_is_on': 'i', 'h_is_on': 'j', 'i_is_on': 'k', 'j_is_on': 'l'}
+  Solved: yes
+  Time [s]: 0.1064
+  Expanded states: 3
+  Actions: 2
+    1. move_h_from_table_to_j
+    2. move_g_from_table_to_i
+
+Subgoal 5:
+  Goal: {'e_is_on': 'g', 'f_is_on': 'h', 'g_is_on': 'i', 'h_is_on': 'j'}
+  Solved: yes
+  Time [s]: 0.0050
+  Expanded states: 3
+  Actions: 2
+    1. move_f_from_table_to_h
+    2. move_e_from_table_to_g
+
+Final goal:
+  Goal: {'a_is_on': 'c', 'c_is_on': 'e', 'e_is_on': 'g', 'g_is_on': 'i', 'i_is_on': 'k', 'k_is_on': 'table', 'b_is_on': 'd', 'd_is_on': 'f', 'f_is_on': 'h', 'h_is_on': 'j', 'j_is_on': 'l', 'l_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0390
+  Expanded states: 7
+  Actions: 4
+    1. move_d_from_table_to_f
+    2. move_c_from_table_to_e
+    3. move_a_from_table_to_c
+    4. move_b_from_table_to_d
+
+==================================================
+Overall:
+  Solved: yes
+  Total time [s]: 0.3859
+  Total expanded states: 29
+  Total actions: 21
+
+Complete action plan:
+  1. move_a_from_b_to_table
+  2. move_b_from_c_to_table
+  3. move_c_from_d_to_table
+  4. move_d_from_e_to_table
+  5. move_e_from_f_to_table
+  6. move_f_from_g_to_table
+  7. move_g_from_h_to_table
+  8. move_h_from_i_to_table
+  9. move_i_from_j_to_table
+  10. move_j_from_k_to_table
+  11. move_k_from_l_to_table
+  12. move_i_from_table_to_k
+  13. move_j_from_table_to_l
+  14. move_h_from_table_to_j
+  15. move_g_from_table_to_i
+  16. move_f_from_table_to_h
+  17. move_e_from_table_to_g
+  18. move_d_from_table_to_f
+  19. move_c_from_table_to_e
+  20. move_a_from_table_to_c
+  21. move_b_from_table_to_d

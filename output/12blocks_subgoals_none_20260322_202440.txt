@@ -1,0 +1,41 @@
+Experiment: 12blocks_subgoals
+Problem: 12 blocks - tower to two interleaved towers
+Heuristic: none
+Subgoals: 5
+Date: 2026-03-22 20:24:40
+==================================================
+
+Subgoal 1:
+  Goal: {'a_is_on': 'table', 'b_is_on': 'table', 'c_is_on': 'table', 'd_is_on': 'table', 'e_is_on': 'table', 'f_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.8252
+  Expanded states: 508
+  Actions: 6
+    1. move_a_from_b_to_table
+    2. move_b_from_c_to_table
+    3. move_c_from_d_to_table
+    4. move_d_from_e_to_table
+    5. move_e_from_f_to_table
+    6. move_f_from_g_to_table
+
+Subgoal 2:
+  Goal: {'g_is_on': 'table', 'h_is_on': 'table', 'i_is_on': 'table', 'j_is_on': 'table', 'k_is_on': 'table'}
+  Solved: no
+  Time [s]: 300.0000
+  Expanded states: 6604
+  Actions: 0
+
+==================================================
+Overall:
+  Solved: no
+  Total time [s]: 300.8252
+  Total expanded states: 7112
+  Total actions: 6
+
+Complete action plan:
+  1. move_a_from_b_to_table
+  2. move_b_from_c_to_table
+  3. move_c_from_d_to_table
+  4. move_d_from_e_to_table
+  5. move_e_from_f_to_table
+  6. move_f_from_g_to_table

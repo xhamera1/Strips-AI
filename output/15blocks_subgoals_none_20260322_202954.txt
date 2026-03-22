@@ -1,0 +1,20 @@
+Experiment: 15blocks_subgoals
+Problem: 15 blocks - five stacks of 3 to three stacks of 5
+Heuristic: none
+Subgoals: 4
+Date: 2026-03-22 20:29:54
+==================================================
+
+Subgoal 1:
+  Goal: {'a_is_on': 'table', 'b_is_on': 'table', 'd_is_on': 'table', 'e_is_on': 'table', 'g_is_on': 'table', 'h_is_on': 'table', 'j_is_on': 'table', 'k_is_on': 'table', 'm_is_on': 'table', 'n_is_on': 'table'}
+  Solved: no
+  Time [s]: 300.0000
+  Expanded states: 6029
+  Actions: 0
+
+==================================================
+Overall:
+  Solved: no
+  Total time [s]: 300.0000
+  Total expanded states: 6029
+  Total actions: 0

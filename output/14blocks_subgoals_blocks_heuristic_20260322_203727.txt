@@ -1,0 +1,105 @@
+Experiment: 14blocks_subgoals
+Problem: 14 blocks - tower to three interleaved towers
+Heuristic: blocks_heuristic
+Subgoals: 5
+Date: 2026-03-22 20:37:27
+==================================================
+
+Subgoal 1:
+  Goal: {'a_is_on': 'table', 'b_is_on': 'table', 'c_is_on': 'table', 'd_is_on': 'table', 'e_is_on': 'table', 'f_is_on': 'table', 'g_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.1937
+  Expanded states: 8
+  Actions: 7
+    1. move_a_from_b_to_table
+    2. move_b_from_c_to_table
+    3. move_c_from_d_to_table
+    4. move_d_from_e_to_table
+    5. move_e_from_f_to_table
+    6. move_f_from_g_to_table
+    7. move_g_from_h_to_table
+
+Subgoal 2:
+  Goal: {'h_is_on': 'table', 'i_is_on': 'table', 'j_is_on': 'table', 'k_is_on': 'table', 'l_is_on': 'table', 'm_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.1100
+  Expanded states: 7
+  Actions: 6
+    1. move_h_from_i_to_table
+    2. move_i_from_j_to_table
+    3. move_j_from_k_to_table
+    4. move_k_from_l_to_table
+    5. move_l_from_m_to_table
+    6. move_m_from_n_to_table
+
+Subgoal 3:
+  Goal: {'m_is_on': 'table', 'k_is_on': 'n', 'l_is_on': 'table', 'n_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0396
+  Expanded states: 2
+  Actions: 1
+    1. move_k_from_table_to_n
+
+Subgoal 4:
+  Goal: {'j_is_on': 'm', 'h_is_on': 'k', 'i_is_on': 'l', 'm_is_on': 'table', 'k_is_on': 'n', 'l_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0991
+  Expanded states: 4
+  Actions: 3
+    1. move_i_from_table_to_l
+    2. move_j_from_table_to_m
+    3. move_h_from_table_to_k
+
+Subgoal 5:
+  Goal: {'g_is_on': 'j', 'e_is_on': 'h', 'f_is_on': 'i', 'j_is_on': 'm', 'h_is_on': 'k', 'i_is_on': 'l'}
+  Solved: yes
+  Time [s]: 0.1343
+  Expanded states: 4
+  Actions: 3
+    1. move_f_from_table_to_i
+    2. move_g_from_table_to_j
+    3. move_e_from_table_to_h
+
+Final goal:
+  Goal: {'a_is_on': 'd', 'd_is_on': 'g', 'g_is_on': 'j', 'j_is_on': 'm', 'm_is_on': 'table', 'b_is_on': 'e', 'e_is_on': 'h', 'h_is_on': 'k', 'k_is_on': 'n', 'n_is_on': 'table', 'c_is_on': 'f', 'f_is_on': 'i', 'i_is_on': 'l', 'l_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.1608
+  Expanded states: 5
+  Actions: 4
+    1. move_d_from_table_to_g
+    2. move_b_from_table_to_e
+    3. move_c_from_table_to_f
+    4. move_a_from_table_to_d
+
+==================================================
+Overall:
+  Solved: yes
+  Total time [s]: 0.7375
+  Total expanded states: 30
+  Total actions: 24
+
+Complete action plan:
+  1. move_a_from_b_to_table
+  2. move_b_from_c_to_table
+  3. move_c_from_d_to_table
+  4. move_d_from_e_to_table
+  5. move_e_from_f_to_table
+  6. move_f_from_g_to_table
+  7. move_g_from_h_to_table
+  8. move_h_from_i_to_table
+  9. move_i_from_j_to_table
+  10. move_j_from_k_to_table
+  11. move_k_from_l_to_table
+  12. move_l_from_m_to_table
+  13. move_m_from_n_to_table
+  14. move_k_from_table_to_n
+  15. move_i_from_table_to_l
+  16. move_j_from_table_to_m
+  17. move_h_from_table_to_k
+  18. move_f_from_table_to_i
+  19. move_g_from_table_to_j
+  20. move_e_from_table_to_h
+  21. move_d_from_table_to_g
+  22. move_b_from_table_to_e
+  23. move_c_from_table_to_f
+  24. move_a_from_table_to_d
