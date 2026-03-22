@@ -1,7 +1,7 @@
 import os
-import signal
 import sys
 import time
+import threading
 from datetime import datetime
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "aipython"))
@@ -55,14 +55,6 @@ def extract_actions(solution_path):
     return actions
 
 
-class TimeoutError(Exception):
-    pass
-
-
-def _timeout_handler(signum, frame):
-    raise TimeoutError()
-
-
 def solve(problem, heur=None, timeout_seconds=300):
     if heur:
         search_problem = Forward_STRIPS(problem, heur=heur)
@@ -72,19 +64,24 @@ def solve(problem, heur=None, timeout_seconds=300):
     searcher = SearcherMPP(search_problem)
     searcher.max_display_level = 0
 
-    old_handler = signal.signal(signal.SIGALRM, _timeout_handler)
-    signal.alarm(timeout_seconds)
+    result_container = [None]
 
-    try:
-        start_time = time.time()
-        solution_path = searcher.search()
-        elapsed = time.time() - start_time
-    except TimeoutError:
+    def run_search():
+        result_container[0] = searcher.search()
+
+    thread = threading.Thread(target=run_search)
+    thread.daemon = True
+
+    start_time = time.time()
+    thread.start()
+    thread.join(timeout=timeout_seconds)
+    elapsed = time.time() - start_time
+
+    timed_out = thread.is_alive()
+    solution_path = None if timed_out else result_container[0]
+
+    if timed_out:
         elapsed = timeout_seconds
-        solution_path = None
-    finally:
-        signal.alarm(0)
-        signal.signal(signal.SIGALRM, old_handler)
 
     actions = extract_actions(solution_path) if solution_path else []
     expanded = searcher.num_expanded
@@ -100,24 +97,24 @@ def solve(problem, heur=None, timeout_seconds=300):
 
 def solve_and_record(problem, problem_name, experiment_name, heur=None, timeout_seconds=300):
     print(f"\n{'='*60}")
-    print(f"Eksperyment: {experiment_name}")
+    print(f"Experiment: {experiment_name}")
     print(f"Problem: {problem_name}")
-    heur_label = heur.__name__ if heur else "brak"
-    print(f"Heurystyka: {heur_label}")
+    heur_label = heur.__name__ if heur else "none"
+    print(f"Heuristic: {heur_label}")
     print(f"{'='*60}")
 
     result = solve(problem, heur=heur, timeout_seconds=timeout_seconds)
 
     if result["solved"]:
-        print(f"Rozwiazanie znalezione w {result['time']:.4f}s")
-        print(f"Liczba akcji: {result['num_actions']}")
-        print(f"Rozwinietych stanow: {result['num_expanded']}")
-        print("Plan akcji:")
+        print(f"Solution found in {result['time']:.4f}s")
+        print(f"Number of actions: {result['num_actions']}")
+        print(f"Expanded states: {result['num_expanded']}")
+        print("Action plan:")
         for i, action in enumerate(result["actions"], 1):
             print(f"  {i}. {action}")
     else:
-        print(f"Brak rozwiazania (timeout {timeout_seconds}s)")
-        print(f"Rozwinietych stanow: {result['num_expanded']}")
+        print(f"No solution found (timeout {timeout_seconds}s)")
+        print(f"Expanded states: {result['num_expanded']}")
 
     _save_result(experiment_name, problem_name, heur_label, result)
 
@@ -133,19 +130,19 @@ def _save_result(experiment_name, problem_name, heur_label, result):
     filepath = os.path.join(output_dir, filename)
 
     with open(filepath, "w", encoding="utf-8") as f:
-        f.write(f"Eksperyment: {experiment_name}\n")
+        f.write(f"Experiment: {experiment_name}\n")
         f.write(f"Problem: {problem_name}\n")
-        f.write(f"Heurystyka: {heur_label}\n")
-        f.write(f"Data: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"Heuristic: {heur_label}\n")
+        f.write(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
         f.write(f"{'='*50}\n")
-        f.write(f"Rozwiazano: {'tak' if result['solved'] else 'nie'}\n")
-        f.write(f"Czas [s]: {result['time']:.4f}\n")
-        f.write(f"Rozwinietych stanow: {result['num_expanded']}\n")
-        f.write(f"Liczba akcji: {result['num_actions']}\n")
+        f.write(f"Solved: {'yes' if result['solved'] else 'no'}\n")
+        f.write(f"Time [s]: {result['time']:.4f}\n")
+        f.write(f"Expanded states: {result['num_expanded']}\n")
+        f.write(f"Number of actions: {result['num_actions']}\n")
 
         if result["actions"]:
-            f.write("\nPlan akcji:\n")
+            f.write("\nAction plan:\n")
             for i, action in enumerate(result["actions"], 1):
                 f.write(f"  {i}. {action}\n")
 
-    print(f"Zapisano: {filepath}")
+    print(f"Saved: {filepath}")
