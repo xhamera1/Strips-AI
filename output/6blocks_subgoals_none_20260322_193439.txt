@@ -1,0 +1,54 @@
+Experiment: 6blocks_subgoals
+Problem: 6 blocks - merge tower with single block (subgoals)
+Heuristic: none
+Subgoals: 2
+Date: 2026-03-22 19:34:39
+==================================================
+
+Subgoal 1:
+  Goal: {'e_is_on': 'f'}
+  Solved: yes
+  Time [s]: 0.0748
+  Expanded states: 202
+  Actions: 5
+    1. move_a_from_b_to_table
+    2. move_b_from_c_to_table
+    3. move_c_from_d_to_b
+    4. move_d_from_e_to_c
+    5. move_e_from_table_to_f
+
+Subgoal 2:
+  Goal: {'d_is_on': 'e', 'c_is_on': 'd', 'e_is_on': 'f'}
+  Solved: yes
+  Time [s]: 0.0077
+  Expanded states: 39
+  Actions: 2
+    1. move_d_from_c_to_e
+    2. move_c_from_b_to_d
+
+Final goal:
+  Goal: {'a_is_on': 'b', 'b_is_on': 'c', 'c_is_on': 'd', 'd_is_on': 'e', 'e_is_on': 'f', 'f_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0041
+  Expanded states: 21
+  Actions: 2
+    1. move_b_from_table_to_c
+    2. move_a_from_table_to_b
+
+==================================================
+Overall:
+  Solved: yes
+  Total time [s]: 0.0867
+  Total expanded states: 262
+  Total actions: 9
+
+Complete action plan:
+  1. move_a_from_b_to_table
+  2. move_b_from_c_to_table
+  3. move_c_from_d_to_b
+  4. move_d_from_e_to_c
+  5. move_e_from_table_to_f
+  6. move_d_from_c_to_e
+  7. move_c_from_b_to_d
+  8. move_b_from_table_to_c
+  9. move_a_from_table_to_b

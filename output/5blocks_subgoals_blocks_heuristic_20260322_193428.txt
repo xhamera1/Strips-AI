@@ -1,0 +1,44 @@
+Experiment: 5blocks_subgoals
+Problem: 5 blocks - scattered into one tower (subgoals)
+Heuristic: blocks_heuristic
+Subgoals: 2
+Date: 2026-03-22 19:34:28
+==================================================
+
+Subgoal 1:
+  Goal: {'d_is_on': 'e'}
+  Solved: yes
+  Time [s]: 0.0007
+  Expanded states: 2
+  Actions: 1
+    1. move_d_from_table_to_e
+
+Subgoal 2:
+  Goal: {'c_is_on': 'd', 'd_is_on': 'e'}
+  Solved: yes
+  Time [s]: 0.0000
+  Expanded states: 2
+  Actions: 1
+    1. move_c_from_table_to_d
+
+Final goal:
+  Goal: {'a_is_on': 'b', 'b_is_on': 'c', 'c_is_on': 'd', 'd_is_on': 'e', 'e_is_on': 'table'}
+  Solved: yes
+  Time [s]: 0.0011
+  Expanded states: 4
+  Actions: 2
+    1. move_b_from_table_to_c
+    2. move_a_from_table_to_b
+
+==================================================
+Overall:
+  Solved: yes
+  Total time [s]: 0.0018
+  Total expanded states: 8
+  Total actions: 4
+
+Complete action plan:
+  1. move_d_from_table_to_e
+  2. move_c_from_table_to_d
+  3. move_b_from_table_to_c
+  4. move_a_from_table_to_b
