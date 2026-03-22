@@ -1,14 +1,14 @@
 """
-Problem 5 klockow
-Stan poczatkowy: 5 klockow (a, b, c, d, e) lezy osobno na stole.
-Stan docelowy: Wszystkie klocki ulozone w jedna wieze (a na b na c na d na e).
+Problem: 5 blocks
+Initial state: 5 blocks (a, b, c, d, e) lying separately on the table.
+Goal state: All blocks stacked in a single tower (a on b on c on d on e).
 """
 from aipython.stripsProblem import Planning_problem
 
 from blocks_world_helper import BlocksWorldHelper, blocks_heuristic, solve_and_record
 
 BLOCKS = {"a", "b", "c", "d", "e"}
-PROBLEM_NAME = "5 klockow - rozproszone w jedna wieze"
+PROBLEM_NAME = "5 blocks - scattered into one tower"
 EXPERIMENT = "5blocks"
 
 if __name__ == "__main__":
