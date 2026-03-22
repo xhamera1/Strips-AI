@@ -632,6 +632,52 @@ Stan początkowy → Podcel 1 → Podcel 2 → ... → Cel końcowy
 | 6 klocków | 4 255 | 262 | **16×** |
 | 7 klocków | 14 158 (timeout) | 1 195 | **12×** (i rozwiązany!) |
 
+### 4.2 Duże problemy z podcelami (minimum 20 akcji)
+
+Dodatkowo zdefiniowaliśmy i rozwiązaliśmy trzy problemy wymagające **minimum 20 instancji akcji**. Każdy problem uruchomiono zarówno bez heurystyki, jak i z heurystyką.
+
+**Problem A: 12 klocków – wieża → dwie wieże bloki naprzemiennie** (`12blocks_subgoals.py`)
+- Start: [a,b,c,d,e,f,g,h,i,j,k,l] (jedna wieża)
+- Cel: [a,c,e,g,i,k] i [b,d,f,h,j,l]
+- 5 podceli
+
+| Metryka | Bez heurystyki | Z heurystyką |
+|---------|---------------|-------------|
+| Rozwiązano? | ❌ Nie (timeout na podcelu 2) | ✅ Tak |
+| Czas | 300+ s | **0.39 s** |
+| Rozwinięte stany | 7 112 | **29** |
+| **Liczba akcji** | — | **21** |
+
+---
+
+**Problem B: 15 klocków – pięć stosów po 3 → trzy stosy po 5** (`15blocks_subgoals.py`)
+- Start: [a,b,c], [d,e,f], [g,h,i], [j,k,l], [m,n,o]
+- Cel: [a,e,i,l,o], [b,f,j,m,c], [d,h,k,n,g]
+- 4 podcele
+
+| Metryka | Bez heurystyki | Z heurystyką |
+|---------|---------------|-------------|
+| Rozwiązano? | ❌ Nie (timeout na podcelu 1) | ✅ Tak |
+| Czas | 300+ s | **0.36 s** |
+| Rozwinięte stany | 6 029 | **27** |
+| **Liczba akcji** | — | **22** |
+
+---
+
+**Problem C: 14 klocków – wieża → trzy wieże naprzemieniowe** (`14blocks_subgoals.py`)
+- Start: [a,b,c,d,e,f,g,h,i,j,k,l,m,n] (jedna wieża)
+- Cel: [a,d,g,j,m], [b,e,h,k,n], [c,f,i,l]
+- 5 podceli
+
+| Metryka | Bez heurystyki | Z heurystyką |
+|---------|---------------|-------------|
+| Rozwiązano? | ❌ Nie (timeout na podcelu 2) | ✅ Tak |
+| Czas | 345+ s (podcel 1: 45s, podcel 2: timeout) | **0.74 s** |
+| Rozwinięte stany | 9 275 | **30** |
+| **Liczba akcji** | — | **24** |
+
+> ⚠️ **Wniosek:** Dla dużych problemów (12–15 klocków) **samo rozbicie na podcele nie wystarcza** — bez heurystyki solver wciąż trafia na timeout. Dopiero **połączenie podceli z heurystyką** pozwala rozwiązać te problemy w ułamku sekundy, rozwijając zaledwie ~30 stanów zamiast tysięcy.
+
 ---
 
 ## 6. Wnioski
